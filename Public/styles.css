@@ -1,0 +1,215 @@
+/* General Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #97c7f7;
+  color: #333;
+}
+
+h1, h2 {
+  color: #2c3e50;
+}
+
+/* Note Form Styles for Sticky Note Effect */
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start; /* Align the form items to the left */
+  background-color: #fdde6d; 
+  width: 250px;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+form input[type="text"] {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: box-shadow 0.2s ease;
+}
+
+form input[type="text"]:focus {
+  outline: none;
+  box-shadow: 0 0 8px rgba(50, 150, 250, 0.5);
+}
+
+form button[type="submit"] {
+  align-self: center; /* Align the button to the middle */
+  padding: 10px 20px;
+  border: none;
+  background-color: #2980b9;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+form button[type="submit"]:hover {
+  background-color: #3498db;
+}
+
+/* Note Container and Notes */
+#notes-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* Note Container Styles */
+.note {
+  background-color: #fdde6d; 
+  width: 250px;
+  height: 200px;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  animation: fadeIn 0.4s ease-in-out;
+  overflow: hidden; /* Prevents overflow */
+}
+
+/* Container for buttons */
+.note-buttons {
+  display: flex;
+  justify-content: flex-end; /* Align buttons to the right */
+  gap: 10px; /* Adds space between buttons */
+  margin-top: 10px; /* Adds some space between the content and buttons */
+}
+
+/* Button Styles */
+.note button {
+  padding: 5px;
+  border-radius: 50%;
+  margin: 0;
+  border: none; /* Remove border for a cleaner look */
+  cursor: pointer;
+  width: 30px;
+  height: 30px; /* Set fixed size to make buttons more compact */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Delete Button */
+.note button.delete {
+  background-color: #e74c3c;
+  color: #fff;
+}
+
+.note button.delete:hover {
+  background-color: #ff6b6b;
+}
+
+/* Edit Button */
+.note button.edit {
+  background-color: #27ae60;
+  color: #fff;
+}
+
+.note button.edit:hover {
+  background-color: #2ecc71;
+}
+
+/* Icon styles for buttons */
+.note button i {
+  font-size: 1.2rem; /* Adjust icon size for better appearance */
+  color: white; /* icon color is white */
+}
+
+.note p {
+  flex-grow: 1;
+  font-size: 1rem;
+  margin-bottom: 10px;
+  overflow-y: auto; /* Allows vertical scrolling */
+  white-space: normal; /* Text wraps to the next line */
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+  background-color: #1e1e1e;
+  color: #f0f0f0;
+}
+
+body.dark-mode h1, body.dark-mode h2 {
+  color: #ffa500; /* Orange color  */
+}
+
+.dark-mode .note {
+  background-color: #4a4a4a;
+  color: #f0f0f0;
+}
+
+.dark-mode .note h3 {
+  color: #ffa500; /* Orange for note titles */
+}
+
+.dark-mode input[type="text"] {
+  background-color: #333;
+  color: #f0f0f0;
+  border: 1px solid #555;
+}
+
+.dark-mode button[type="submit"] {
+  background-color: #444;
+  color: #f0f0f0;
+}
+
+.dark-mode button[type="submit"]:hover {
+  background-color: #666;
+}
+
+/* Light Bulb Toggle Button Styles */
+.lightbulb {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #444;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.lightbulb:hover {
+  background-color: #ffa500; /* Change color when hovered */
+}
+
+.lightbulb i {
+  font-size: 1.5rem;
+}
+
+body.dark-mode .lightbulb {
+  background-color: #ffa500;
+  color: #1e1e1e;
+}
+
+/* Note animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
